@@ -1,7 +1,6 @@
-import { Calendar, ArrowRight, Tag } from "lucide-react";
+import { Calendar, ArrowRight } from "lucide-react";
 import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements";
 import Layout from "@/components/Layout";
-import { Button } from "@/components/ui/button";
 
 const blogPosts = [
   {
@@ -51,24 +50,24 @@ const blogPosts = [
 const Blog = () => {
   return (
     <Layout>
-      <section className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Blog"
             title="Latest Articles"
             subtitle="Thoughts, tutorials, and insights about web development"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {blogPosts.map((post, i) => (
               <AnimatedCard key={post.title} delay={i * 0.08} className="group cursor-pointer">
                 <div className="flex items-center gap-2 mb-3">
                   <span className="text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary">{post.tag}</span>
                   <span className="text-xs text-muted-foreground">{post.readTime}</span>
                 </div>
-                <h3 className="font-display font-semibold text-lg group-hover:text-primary transition-colors">{post.title}</h3>
+                <h3 className="font-display font-semibold text-base sm:text-lg group-hover:text-primary transition-colors">{post.title}</h3>
                 <p className="text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/50">
+                <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
                   <div className="flex items-center gap-2 text-xs text-muted-foreground">
                     <Calendar size={12} />
                     {post.date}

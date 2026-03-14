@@ -1,9 +1,8 @@
-import { Globe, Layout as LayoutIcon, Server, Palette, Zap, Code2 } from "lucide-react";
+import { Globe, Layout as LayoutIcon, Server, Palette, Zap, Code2, ArrowRight } from "lucide-react";
 import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements";
 import Layout from "@/components/Layout";
 import { Button } from "@/components/ui/button";
 import { Link } from "react-router-dom";
-import { ArrowRight } from "lucide-react";
 
 const services = [
   {
@@ -47,21 +46,21 @@ const services = [
 const Services = () => {
   return (
     <Layout>
-      <section className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Services"
             title="What I Offer"
             subtitle="Professional services tailored to your needs"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {services.map((service, i) => (
               <AnimatedCard key={service.title} delay={i * 0.08} className="group">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center mb-4 group-hover:bg-primary/20 transition-colors">
                   <service.icon className="text-primary" size={24} />
                 </div>
-                <h3 className="font-display font-semibold text-lg mb-2">{service.title}</h3>
+                <h3 className="font-display font-semibold text-base sm:text-lg mb-2">{service.title}</h3>
                 <p className="text-sm text-muted-foreground mb-4 leading-relaxed">{service.description}</p>
                 <div className="flex flex-wrap gap-2">
                   {service.benefits.map((b) => (
@@ -73,9 +72,9 @@ const Services = () => {
           </div>
 
           {/* CTA */}
-          <div className="text-center mt-16">
+          <div className="text-center mt-12 sm:mt-16">
             <Link to="/contact">
-              <Button variant="accent" size="lg">
+              <Button variant="accent" size="lg" className="w-full sm:w-auto">
                 Get Started <ArrowRight className="ml-1" size={16} />
               </Button>
             </Link>

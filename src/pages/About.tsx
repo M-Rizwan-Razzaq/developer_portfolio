@@ -19,8 +19,8 @@ const techStack = [
 const About = () => {
   return (
     <Layout>
-      <section className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeading badge="About Me" title="Who I Am" subtitle="A passionate developer building the future of the web" />
 
           <div className="max-w-4xl mx-auto">
@@ -28,15 +28,15 @@ const About = () => {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              className="glass-card p-8 mb-12"
+              className="glass-card p-6 sm:p-8 mb-12"
             >
-              <div className="flex items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-start gap-4">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Code2 className="text-primary" size={24} />
                 </div>
                 <div>
-                  <h3 className="font-display font-semibold text-xl mb-3">Hello, I'm a Full Stack Developer</h3>
-                  <p className="text-muted-foreground leading-relaxed">
+                  <h3 className="font-display font-semibold text-lg sm:text-xl mb-3">Hello, I'm a Full Stack Developer</h3>
+                  <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
                     With 5+ years of experience in web development, I specialize in creating modern, scalable, and user-friendly applications. I'm passionate about clean code, thoughtful architecture, and delivering exceptional digital experiences.
                   </p>
                 </div>
@@ -45,10 +45,10 @@ const About = () => {
 
             {/* Experience Timeline */}
             <SectionHeading badge="Experience" title="My Journey" />
-            <div className="space-y-6 mb-16">
+            <div className="space-y-4 sm:space-y-6 mb-16">
               {experience.map((exp, i) => (
                 <AnimatedCard key={exp.year} delay={i * 0.1}>
-                  <div className="flex flex-col md:flex-row md:items-center gap-4">
+                  <div className="flex flex-col gap-2 sm:gap-4">
                     <span className="text-xs px-3 py-1 rounded-full bg-primary/10 text-primary font-medium whitespace-nowrap w-fit">
                       {exp.year}
                     </span>
@@ -64,7 +64,7 @@ const About = () => {
 
             {/* Tech Stack */}
             <SectionHeading badge="Tech Stack" title="Technologies" />
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 mb-16">
               {techStack.map((cat, i) => (
                 <AnimatedCard key={cat.category} delay={i * 0.1}>
                   <h4 className="font-display font-semibold text-sm text-primary mb-3">{cat.category}</h4>
@@ -93,7 +93,7 @@ const About = () => {
             </AnimatedCard>
 
             {/* Mission */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">
               <AnimatedCard>
                 <Target className="text-primary mb-3" size={24} />
                 <h4 className="font-display font-semibold mb-2">Mission</h4>

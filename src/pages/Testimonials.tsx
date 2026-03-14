@@ -50,15 +50,15 @@ const testimonials = [
 const Testimonials = () => {
   return (
     <Layout>
-      <section className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Testimonials"
             title="Client Feedback"
             subtitle="What people say about working with me"
           />
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {testimonials.map((t, i) => (
               <AnimatedCard key={t.name} delay={i * 0.08}>
                 <div className="flex gap-1 mb-4">
@@ -71,7 +71,7 @@ const Testimonials = () => {
                   ))}
                 </div>
                 <p className="text-sm text-muted-foreground leading-relaxed italic mb-4">"{t.text}"</p>
-                <div className="pt-4 border-t border-border/50">
+                <div className="pt-4 border-t border-border/30">
                   <p className="font-semibold text-sm">{t.name}</p>
                   <p className="text-xs text-muted-foreground">{t.role}, {t.company}</p>
                 </div>

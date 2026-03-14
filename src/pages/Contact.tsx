@@ -20,21 +20,21 @@ const Contact = () => {
 
   return (
     <Layout>
-      <section className="pt-32 pb-24">
-        <div className="container mx-auto px-6">
+      <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
+        <div className="container mx-auto px-4 sm:px-6">
           <SectionHeading
             badge="Contact"
             title="Get In Touch"
             subtitle="Have a project in mind? Let's discuss it."
           />
 
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Info */}
-            <div className="lg:col-span-2 space-y-6">
+            <div className="lg:col-span-2 grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-1 gap-4 sm:gap-6">
               <AnimatedCard>
                 <Mail className="text-primary mb-3" size={24} />
                 <h4 className="font-display font-semibold">Email</h4>
-                <p className="text-sm text-muted-foreground mt-1">hello@developer.com</p>
+                <p className="text-sm text-muted-foreground mt-1 break-all">hello@developer.com</p>
               </AnimatedCard>
               <AnimatedCard delay={0.1}>
                 <MapPin className="text-secondary mb-3" size={24} />
@@ -47,7 +47,7 @@ const Contact = () => {
                 <p className="text-sm text-muted-foreground mt-1">+1 (555) 123-4567</p>
               </AnimatedCard>
 
-              <div className="flex gap-3 pt-4">
+              <div className="flex gap-3 sm:col-span-3 lg:col-span-1 justify-center lg:justify-start">
                 {[Github, Linkedin, Twitter].map((Icon, i) => (
                   <a
                     key={i}
@@ -67,7 +67,7 @@ const Contact = () => {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="lg:col-span-3"
             >
-              <form onSubmit={handleSubmit} className="glass-card p-8 space-y-6">
+              <form onSubmit={handleSubmit} className="glass-card p-6 sm:p-8 space-y-5 sm:space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <label className="text-sm font-medium mb-2 block">Name</label>

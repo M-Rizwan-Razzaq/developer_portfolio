@@ -3,10 +3,10 @@ import { Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer className="border-t border-border/50 bg-surface/30">
-      <div className="container mx-auto px-6 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-          <div className="col-span-1 md:col-span-2">
+    <footer className="border-t border-border/30">
+      <div className="container mx-auto px-4 sm:px-6 py-10 sm:py-12">
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="sm:col-span-2">
             <Link to="/" className="font-display font-bold text-2xl gradient-text">
               {"<Dev />"}
             </Link>
@@ -54,7 +54,7 @@ const Footer = () => {
           </div>
         </div>
 
-        <div className="border-t border-border/50 mt-10 pt-6 flex flex-col md:flex-row justify-between items-center gap-4">
+        <div className="border-t border-border/30 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
             © 2026 Dev Portfolio. All rights reserved.
           </p>

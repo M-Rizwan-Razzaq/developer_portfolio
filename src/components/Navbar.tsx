@@ -39,17 +39,17 @@ const Navbar = () => {
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 200, damping: 30 }}
-      className={`fixed top-3 left-3 right-3 md:left-1/2 md:right-auto md:-translate-x-1/2 md:top-4 z-50 transition-all duration-300 rounded-2xl ${
+      className={`fixed top-3 left-3 right-3 z-50 transition-all duration-300 rounded-2xl ${
         scrolled || isOpen ? "glass-nav shadow-lg shadow-primary/5" : "bg-transparent"
       }`}
     >
-      <div className="px-4 sm:px-6 py-3 flex items-center justify-between md:justify-start gap-4 md:gap-8">
+      <div className="px-4 sm:px-6 py-3 flex items-center justify-between gap-4">
         <Link to="/" className="font-display font-bold text-lg sm:text-xl gradient-text whitespace-nowrap">
-          {"<Dev />"}
+          Muhammad Rizwan
         </Link>
 
         {/* Desktop */}
-        <div className="hidden md:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-1">
           {navLinks.map((link) => (
             <Link
               key={link.path}
@@ -68,7 +68,7 @@ const Navbar = () => {
         {/* Mobile toggle */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-foreground p-2 rounded-lg hover:bg-surface-hover transition-colors"
+          className="lg:hidden text-foreground p-2 rounded-lg hover:bg-surface-hover transition-colors"
           aria-label="Toggle menu"
         >
           {isOpen ? <X size={22} /> : <Menu size={22} />}
@@ -82,7 +82,7 @@ const Navbar = () => {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-border/30 overflow-hidden"
+            className="lg:hidden border-t border-border/30 overflow-hidden"
           >
             <div className="px-4 py-4 flex flex-col gap-1">
               {navLinks.map((link, i) => (

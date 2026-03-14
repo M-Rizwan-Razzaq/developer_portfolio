@@ -6,45 +6,47 @@ import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements"
 import Layout from "@/components/Layout";
 
 const skills = [
-  { name: "React / Next.js", level: 95 },
-  { name: "TypeScript", level: 90 },
-  { name: "Node.js", level: 88 },
-  { name: "Tailwind CSS", level: 95 },
+  { name: "React.js", level: 90 },
+  { name: "Angular", level: 75 },
+  { name: "Node.js / Express.js", level: 85 },
+  { name: "NestJS", level: 78 },
   { name: "MongoDB", level: 85 },
-  { name: "PostgreSQL", level: 82 },
+  { name: "TypeScript", level: 80 },
+  { name: "Tailwind CSS", level: 90 },
+  { name: "Redux / Context API", level: 82 },
 ];
 
 const featuredProjects = [
   {
-    title: "E-Commerce Platform",
-    description: "A full-stack e-commerce solution with real-time inventory, payment processing, and admin dashboard.",
-    tech: ["React", "Node.js", "MongoDB", "Stripe"],
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=400&fit=crop",
+    title: "Agroanimal Impex",
+    description: "Client business website with clean layouts and responsive sections.",
+    tech: ["React", "Tailwind", "JavaScript"],
+    image: "/agroanimal impex",
   },
   {
-    title: "SaaS Dashboard",
-    description: "Analytics dashboard with real-time data visualization, team management, and automated reporting.",
-    tech: ["Next.js", "TypeScript", "PostgreSQL", "Chart.js"],
-    image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=400&fit=crop",
+    title: "Softechbar IT Company",
+    description: "Company showcase site built with modern UI and smooth navigation.",
+    tech: ["React", "Vite", "TypeScript", "Tailwind"],
+    image: "/softechbar",
   },
   {
-    title: "Social Media App",
-    description: "Real-time social platform with messaging, content sharing, and AI-powered recommendations.",
-    tech: ["React", "Socket.io", "Redis", "AWS"],
-    image: "https://images.unsplash.com/photo-1611162617474-5b21e879e113?w=600&h=400&fit=crop",
+    title: "Rizt Tech Solution",
+    description: "Product and services showcase with structured sections and clear CTAs.",
+    tech: ["React", "Vite", "TypeScript", "Tailwind"],
+    image: "/Rizt tech solution",
   },
 ];
 
 const testimonials = [
   {
-    name: "Sarah Chen",
-    role: "CEO, TechStart",
+    name: "Tayyab Iqbal",
+    role: "CEO, Agroanimal Impex",
     text: "Exceptional work! Delivered our platform ahead of schedule with outstanding quality.",
     rating: 5,
   },
   {
-    name: "Marcus Johnson",
-    role: "CTO, DataFlow",
+    name: "Naveed",
+    role: "CTO, Rizt Tech Solution",
     text: "The most talented developer we've worked with. Clean code and brilliant architecture.",
     rating: 5,
   },
@@ -86,7 +88,7 @@ const Index = () => {
             >
               <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
                 <Sparkles className="inline w-3 h-3 mr-1" />
-                Full Stack Developer
+          Full Stack Developer      
               </span>
             </motion.div>
 
@@ -96,8 +98,8 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
             >
-              Transforming Ideas Into{" "}
-              <span className="gradient-text-hero">Digital Products</span>
+              Muhammad Rizwan{" "}
+              <span className="gradient-text-hero">Software Engineer</span>
             </motion.h1>
 
             <motion.p
@@ -106,8 +108,7 @@ const Index = () => {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
             >
-              I build high-performance web applications with modern technologies.
-              Specializing in React, Node.js, and cloud architecture.
+           Building fast, scalable, and modern web applications with React, Node.js, Angular, and MongoDB, focused on performance and great user experience.
             </motion.p>
 
             <motion.div
@@ -136,9 +137,9 @@ const Index = () => {
               className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto"
             >
               {[
-                { value: "50+", label: "Projects" },
-                { value: "5+", label: "Years Exp." },
-                { value: "30+", label: "Clients" },
+                { value: "9", label: "Projects" },
+                { value: "4", label: "Roles" },
+                { value: "2", label: "Degrees" },
               ].map((stat) => (
                 <div key={stat.label} className="text-center">
                   <div className="font-display text-xl sm:text-2xl md:text-3xl font-bold gradient-text">{stat.value}</div>

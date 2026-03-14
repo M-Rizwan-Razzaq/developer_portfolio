@@ -1,5 +1,14 @@
 import { Link } from "react-router-dom";
-import { Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Linkedin, Mail, Github, Twitter, Facebook, Instagram, ArrowUp } from "lucide-react";
+
+const socialLinks = [
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/muhammadrizwan-861201285/", icon: Linkedin },
+  { label: "GitHub", href: "https://github.com/M-Rizwan-Razzaq", icon: Github },
+  { label: "Instagram", href: "https://www.instagram.com/i_am_rizwan435/", icon: Instagram },
+  { label: "Facebook", href: "https://www.facebook.com/rizwan.razzaq.7771", icon: Facebook },
+  { label: "X", href: "https://x.com/RizwanRazzaq56", icon: Twitter },
+  { label: "Email", href: "mailto:muhammad.rizwan.razzaq56@gmail.com", icon: Mail },
+];
 
 const Footer = () => {
   return (
@@ -8,20 +17,22 @@ const Footer = () => {
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8">
           <div className="sm:col-span-2">
             <Link to="/" className="font-display font-bold text-2xl gradient-text">
-              {"<Dev />"}
+              Muhammad Rizwan
             </Link>
             <p className="mt-4 text-muted-foreground max-w-md text-sm leading-relaxed">
-              Full Stack Developer specializing in building exceptional digital experiences.
-              Turning complex problems into elegant solutions.
+              MERN stack developer and Software Engineering student focused on building clean, responsive web experiences.
             </p>
-            <div className="flex gap-3 mt-6">
-              {[Github, Linkedin, Twitter, Mail].map((Icon, i) => (
+            <div className="flex flex-wrap gap-3 mt-6">
+              {socialLinks.map((item) => (
                 <a
-                  key={i}
-                  href="#"
+                  key={item.label}
+                  href={item.href}
+                  target={item.href.startsWith("http") ? "_blank" : undefined}
+                  rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                  aria-label={item.label}
                   className="w-10 h-10 rounded-lg border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
                 >
-                  <Icon size={18} />
+                  <item.icon size={18} />
                 </a>
               ))}
             </div>
@@ -56,11 +67,17 @@ const Footer = () => {
 
         <div className="border-t border-border/30 mt-10 pt-6 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-xs text-muted-foreground">
-            © 2026 Dev Portfolio. All rights reserved.
+            © 2026 Muhammad Rizwan. All rights reserved.
           </p>
-          <p className="text-xs text-muted-foreground">
-            Built with React, TypeScript & Tailwind CSS
-          </p>
+          <button
+            type="button"
+            onClick={() => window.scrollTo({ top: 0, left: 0, behavior: "smooth" })}
+            className="text-xs text-muted-foreground inline-flex items-center gap-2 hover:text-foreground transition-colors"
+            aria-label="Back to top"
+          >
+            Back to top
+            <ArrowUp size={14} />
+          </button>
         </div>
       </div>
     </footer>

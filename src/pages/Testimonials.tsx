@@ -4,47 +4,47 @@ import Layout from "@/components/Layout";
 
 const testimonials = [
   {
-    name: "Sarah Chen",
+    name: "Tayyab Iqbal",
     role: "CEO",
-    company: "TechStart Inc.",
+    company: "Agroanimal Impex",
     text: "Exceptional work! The platform was delivered ahead of schedule and exceeded our expectations. The attention to detail and clean code quality was outstanding.",
     rating: 5,
   },
   {
-    name: "Marcus Johnson",
+    name: "Naveed",
     role: "CTO",
-    company: "DataFlow",
+    company: "Rizt Tech Solution",
     text: "The most talented developer we've worked with. Brilliant architecture decisions and seamless collaboration throughout the project.",
     rating: 5,
   },
   {
-    name: "Emily Rodriguez",
+    name: "M Naqi",
     role: "Product Manager",
-    company: "CloudNine",
+    company: "Softechbar",
     text: "Transformed our outdated platform into a modern, scalable application. Our user engagement increased by 150% after the redesign.",
     rating: 5,
   },
-  {
-    name: "David Kim",
-    role: "Founder",
-    company: "StartupLab",
-    text: "A true professional who understands both the technical and business sides. Delivered a product that our users love.",
-    rating: 5,
-  },
-  {
-    name: "Lisa Wang",
-    role: "Marketing Director",
-    company: "GrowthCo",
-    text: "The website redesign completely transformed our online presence. We saw a 200% increase in leads within the first month.",
-    rating: 5,
-  },
-  {
-    name: "James Miller",
-    role: "VP Engineering",
-    company: "InnovateTech",
-    text: "Highly skilled and incredibly reliable. The codebase is clean, well-documented, and easy for our team to maintain.",
-    rating: 4,
-  },
+  // {
+  //   name: "Sikander",
+  //   role: "Founder",
+  //   company: "StartupLab",
+  //   text: "A true professional who understands both the technical and business sides. Delivered a product that our users love.",
+  //   rating: 5,
+  // },
+  // {
+  //   name: "Lisa Wang",
+  //   role: "Marketing Director",
+  //   company: "GrowthCo",
+  //   text: "The website redesign completely transformed our online presence. We saw a 200% increase in leads within the first month.",
+  //   rating: 5,
+  // },
+  // {
+  //   name: "James Miller",
+  //   role: "VP Engineering",
+  //   company: "InnovateTech",
+  //   text: "Highly skilled and incredibly reliable. The codebase is clean, well-documented, and easy for our team to maintain.",
+  //   rating: 4,
+  // },
 ];
 
 const Testimonials = () => {

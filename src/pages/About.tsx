@@ -4,16 +4,50 @@ import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements"
 import Layout from "@/components/Layout";
 
 const experience = [
-  { year: "2024 - Present", role: "Senior Full Stack Developer", company: "TechCorp", description: "Leading development of enterprise SaaS products." },
-  { year: "2022 - 2024", role: "Full Stack Developer", company: "StartupHub", description: "Built scalable web applications for various startups." },
-  { year: "2021 - 2022", role: "Frontend Developer", company: "DigitalAgency", description: "Created responsive and interactive web interfaces." },
+  {
+    year: "June 2025 - Present",
+    role: "Full Stack Developer",
+    company: "Tech Crusades",
+    description: "Working on MEAN and MERN stack applications, building Angular/React frontends with Node.js, Express, and MongoDB.",
+  },
+  {
+    year: "Jul 2024 - Oct 2024",
+    role: "MERN Stack Web Developer",
+    company: "Codings First",
+    description: "Improved MongoDB performance with indexing, refined the frontend with TypeScript + Tailwind, and strengthened auth using JWT & OAuth.",
+  },
+  {
+    year: "Mar 2024 - Jun 2024",
+    role: "Web Developer Internship",
+    company: "Skill Evokers",
+    description: "Built a React + Node.js e-commerce platform and optimized APIs with caching to reduce load times.",
+  },
+  {
+    year: "Jun 2023 - Feb 2024",
+    role: "Frontend Developer",
+    company: "Freelance, Bahawalpur",
+    description: "Delivered responsive UI with React + Tailwind, integrated REST APIs & Redux, and converted Figma designs with high accuracy.",
+  },
 ];
 
 const techStack = [
-  { category: "Frontend", items: ["React", "Next.js", "TypeScript", "Tailwind CSS", "Framer Motion"] },
-  { category: "Backend", items: ["Node.js", "Express", "Python", "REST APIs", "GraphQL"] },
-  { category: "Database", items: ["MongoDB", "PostgreSQL", "Redis", "Firebase"] },
-  { category: "DevOps", items: ["Docker", "AWS", "CI/CD", "Vercel", "GitHub Actions"] },
+  { category: "Frontend", items: ["React.js", "Angular", "Tailwind CSS", "Bootstrap", "Responsive UI", "Redux"] },
+  { category: "Backend", items: ["Node.js", "Express.js", "REST APIs", "JWT", "OAuth"] },
+  { category: "Database", items: ["MongoDB"] },
+  { category: "Tools", items: ["TypeScript", "Git", "GitHub", "GitLab", "Azure", "CI/CD"] },
+];
+
+const education = [
+  {
+    degree: "Bachelor of Software Engineering",
+    school: "The Islamia University of Bahawalpur (IUB)",
+    years: "2022 - 2026",
+  },
+  {
+    degree: "Intermediate (Mathematics, Physics, CS)",
+    school: "Aspire College, Mian Channu",
+    years: "2020 - 2022",
+  },
 ];
 
 const About = () => {
@@ -21,7 +55,7 @@ const About = () => {
     <Layout>
       <section className="pt-28 sm:pt-32 pb-16 sm:pb-24">
         <div className="container mx-auto px-4 sm:px-6">
-          <SectionHeading badge="About Me" title="Who I Am" subtitle="A passionate developer building the future of the web" />
+          <SectionHeading badge="About Me" title="Who I Am" subtitle=" Full Stack Developer  and Software Engineering Student" />
 
           <div className="max-w-4xl mx-auto">
             {/* Intro */}
@@ -30,16 +64,22 @@ const About = () => {
               animate={{ opacity: 1, y: 0 }}
               className="glass-card p-6 sm:p-8 mb-12"
             >
-              <div className="flex flex-col sm:flex-row items-start gap-4">
+              <div className="flex flex-col sm:flex-row items-start gap-6">
                 <div className="w-12 h-12 rounded-xl bg-primary/10 flex items-center justify-center flex-shrink-0">
                   <Code2 className="text-primary" size={24} />
                 </div>
-                <div>
-                  <h3 className="font-display font-semibold text-lg sm:text-xl mb-3">Hello, I'm a Full Stack Developer</h3>
+                <div className="flex-1">
+                  <h3 className="font-display font-semibold text-lg sm:text-xl mb-3">Hello, I'm Muhammad Rizwan</h3>
                   <p className="text-muted-foreground leading-relaxed text-sm sm:text-base">
-                    With 5+ years of experience in web development, I specialize in creating modern, scalable, and user-friendly applications. I'm passionate about clean code, thoughtful architecture, and delivering exceptional digital experiences.
+                    Software Engineering student at IUB with MERN & Mean stack expertise. I build responsive web experiences, integrate modern APIs, and enjoy solving real-world problems through clean, scalable code.
                   </p>
                 </div>
+                {/* <img
+                  src="/rizu"
+                  alt="Muhammad Rizwan"
+                  className="w-24 h-24 sm:w-28 sm:h-28 rounded-2xl object-cover border border-border/50 shadow-sm"
+                  loading="lazy"
+                /> */}
               </div>
             </motion.div>
 
@@ -81,16 +121,20 @@ const About = () => {
 
             {/* Education */}
             <SectionHeading badge="Education" title="Academic Background" />
-            <AnimatedCard className="mb-16">
-              <div className="flex items-start gap-4">
-                <GraduationCap className="text-secondary flex-shrink-0" size={24} />
-                <div>
-                  <h4 className="font-display font-semibold">BSc in Computer Science</h4>
-                  <p className="text-sm text-secondary">University of Technology</p>
-                  <p className="text-sm text-muted-foreground mt-1">2017 - 2021</p>
-                </div>
-              </div>
-            </AnimatedCard>
+            <div className="space-y-4 sm:space-y-6 mb-16">
+              {education.map((edu, i) => (
+                <AnimatedCard key={edu.degree} delay={i * 0.1}>
+                  <div className="flex items-start gap-4">
+                    <GraduationCap className="text-secondary flex-shrink-0" size={24} />
+                    <div>
+                      <h4 className="font-display font-semibold">{edu.degree}</h4>
+                      <p className="text-sm text-secondary">{edu.school}</p>
+                      <p className="text-sm text-muted-foreground mt-1">{edu.years}</p>
+                    </div>
+                  </div>
+                </AnimatedCard>
+              ))}
+            </div>
 
             {/* Mission */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6">

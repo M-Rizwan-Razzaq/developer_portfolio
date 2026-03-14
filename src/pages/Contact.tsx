@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Mail, MapPin, Phone, Send, Github, Linkedin, Twitter } from "lucide-react";
+import { Mail, MapPin, Phone, Send, Linkedin, Github, Twitter, Facebook, Instagram } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -8,14 +8,62 @@ import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements"
 import Layout from "@/components/Layout";
 import { useToast } from "@/hooks/use-toast";
 
+const CONTACT_RECEIVER_EMAIL = "muhammad.rizwan.razzaq56@gmail.com";
+const FORM_SUBMIT_ENDPOINT = `https://formsubmit.co/ajax/${CONTACT_RECEIVER_EMAIL}`;
+
 const Contact = () => {
   const { toast } = useToast();
-  const [form, setForm] = useState({ name: "", email: "", subject: "", message: "" });
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubmitted, setIsSubmitted] = useState(false);
+  const socialLinks = [
+    { label: "LinkedIn", href: "https://www.linkedin.com/in/muhammadrizwan-861201285/", icon: Linkedin },
+    { label: "GitHub", href: "https://github.com/M-Rizwan-Razzaq", icon: Github },
+    { label: "Instagram", href: "https://www.instagram.com/i_am_rizwan435/", icon: Instagram },
+    { label: "Facebook", href: "https://www.facebook.com/rizwan.razzaq.7771", icon: Facebook },
+    { label: "X", href: "https://x.com/RizwanRazzaq56", icon: Twitter },
+    { label: "Email", href: "mailto:muhammad.rizwan.razzaq56@gmail.com", icon: Mail },
+  ];
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
-    setForm({ name: "", email: "", subject: "", message: "" });
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+    const senderEmail = String(formData.get("email") || "").trim();
+
+    formData.set("_subject", "New Contact Form Submission");
+    formData.set("_captcha", "false");
+    formData.set("_template", "table");
+    if (senderEmail) {
+      formData.set("_replyto", senderEmail);
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      const response = await fetch(FORM_SUBMIT_ENDPOINT, {
+        method: "POST",
+        headers: { Accept: "application/json" },
+        body: formData,
+      });
+
+      const result = await response.json().catch(() => null);
+      if (!response.ok || !result || result.success !== "true") {
+        throw new Error("Form submit failed");
+      }
+
+      setIsSubmitted(true);
+      form.reset();
+      toast({ title: "Message sent!", description: "Thank you for reaching out. I'll get back to you soon." });
+    } catch (error) {
+      toast({
+        title: "Submission failed",
+        description: "Message deliver nahi hui. Please dobara try karein ya direct email karein.",
+        variant: "destructive",
+      });
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
@@ -34,27 +82,30 @@ const Contact = () => {
               <AnimatedCard>
                 <Mail className="text-primary mb-3" size={24} />
                 <h4 className="font-display font-semibold">Email</h4>
-                <p className="text-sm text-muted-foreground mt-1 break-all">hello@developer.com</p>
+                <p className="text-sm text-muted-foreground mt-1 break-all">muhammad.rizwan.razzaq56@gmail.com</p>
               </AnimatedCard>
               <AnimatedCard delay={0.1}>
                 <MapPin className="text-secondary mb-3" size={24} />
                 <h4 className="font-display font-semibold">Location</h4>
-                <p className="text-sm text-muted-foreground mt-1">San Francisco, CA</p>
+                <p className="text-sm text-muted-foreground mt-1">Lahore, Pakistan</p>
               </AnimatedCard>
               <AnimatedCard delay={0.2}>
                 <Phone className="text-accent mb-3" size={24} />
                 <h4 className="font-display font-semibold">Phone</h4>
-                <p className="text-sm text-muted-foreground mt-1">+1 (555) 123-4567</p>
+                <p className="text-sm text-muted-foreground mt-1">+92 306 6592403</p>
               </AnimatedCard>
 
-              <div className="flex gap-3 sm:col-span-3 lg:col-span-1 justify-center lg:justify-start">
-                {[Github, Linkedin, Twitter].map((Icon, i) => (
+              <div className="flex flex-wrap gap-3 sm:col-span-3 lg:col-span-1 justify-center lg:justify-start">
+                {socialLinks.map((item) => (
                   <a
-                    key={i}
-                    href="#"
+                    key={item.label}
+                    href={item.href}
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noreferrer" : undefined}
+                    aria-label={item.label}
                     className="w-10 h-10 rounded-lg border border-border/50 flex items-center justify-center text-muted-foreground hover:text-primary hover:border-primary/50 transition-all"
                   >
-                    <Icon size={18} />
+                    <item.icon size={18} />
                   </a>
                 ))}
               </div>
@@ -72,8 +123,8 @@ const Contact = () => {
                   <div>
                     <label className="text-sm font-medium mb-2 block">Name</label>
                     <Input
-                      value={form.name}
-                      onChange={(e) => setForm({ ...form, name: e.target.value })}
+                      id="name"
+                      name="name"
                       placeholder="Your name"
                       required
                       className="bg-background/50 border-border/50"
@@ -82,9 +133,9 @@ const Contact = () => {
                   <div>
                     <label className="text-sm font-medium mb-2 block">Email</label>
                     <Input
+                      id="email"
+                      name="email"
                       type="email"
-                      value={form.email}
-                      onChange={(e) => setForm({ ...form, email: e.target.value })}
                       placeholder="your@email.com"
                       required
                       className="bg-background/50 border-border/50"
@@ -92,10 +143,19 @@ const Contact = () => {
                   </div>
                 </div>
                 <div>
+                  <label className="text-sm font-medium mb-2 block">Phone</label>
+                  <Input
+                    id="phone"
+                    name="phone"
+                    placeholder="+92 300 1234567"
+                    className="bg-background/50 border-border/50"
+                  />
+                </div>
+                <div>
                   <label className="text-sm font-medium mb-2 block">Subject</label>
                   <Input
-                    value={form.subject}
-                    onChange={(e) => setForm({ ...form, subject: e.target.value })}
+                    id="subject"
+                    name="subject"
                     placeholder="Project inquiry"
                     required
                     className="bg-background/50 border-border/50"
@@ -104,17 +164,20 @@ const Contact = () => {
                 <div>
                   <label className="text-sm font-medium mb-2 block">Message</label>
                   <Textarea
-                    value={form.message}
-                    onChange={(e) => setForm({ ...form, message: e.target.value })}
+                    id="message"
+                    name="message"
                     placeholder="Tell me about your project..."
                     rows={5}
                     required
                     className="bg-background/50 border-border/50"
                   />
                 </div>
-                <Button variant="accent" size="lg" type="submit" className="w-full">
-                  Send Message <Send className="ml-1" size={16} />
+                <Button variant="accent" size="lg" type="submit" className="w-full" disabled={isSubmitting}>
+                  {isSubmitting ? "Sending..." : <>Send Message <Send className="ml-1" size={16} /></>}
                 </Button>
+                {isSubmitted && (
+                  <p className="text-sm text-center text-muted-foreground">Your message has been sent successfully.</p>
+                )}
               </form>
             </motion.div>
           </div>

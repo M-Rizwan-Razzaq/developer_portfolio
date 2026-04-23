@@ -1,73 +1,114 @@
-# Welcome to your Lovable project
+# Muhammad Rizwan Portfolio
 
-## Project info
+A modern personal portfolio website built to showcase projects, services, experience, testimonials, and contact details in a clean, responsive UI.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+## Overview
 
-## How can I edit this code?
+This project is a single-page style portfolio app with routed sections for:
 
-There are several ways of editing your application.
+- Home
+- About
+- Projects
+- Services
+- Blog
+- Testimonials
+- Contact
 
-**Use Lovable**
+It uses animated UI elements, responsive layouts, and a contact form that sends submissions through FormSubmit.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+## Tech Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- React
+- TypeScript
+- Vite
+- Tailwind CSS
+- shadcn/ui
+- Framer Motion
+- React Router DOM
+- TanStack Query
+- Sonner and Radix UI components
 
-**Use your preferred IDE**
+## Features
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Responsive navbar with mobile menu
+- Animated hero, cards, and section transitions
+- Dedicated pages for portfolio content
+- Skill, experience, education, and project sections
+- Contact form with email submission
+- WhatsApp floating action button
+- Toast notifications for feedback
+- Vercel-ready routing configuration
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Project Structure
 
-Follow these steps:
+- `src/App.tsx` - App routing and providers
+- `src/pages/` - Route pages such as Home, About, Projects, and Contact
+- `src/components/` - Shared layout, navigation, footer, and UI pieces
+- `src/components/ui/` - Reusable shadcn-style UI components
+- `src/assets/` - Static assets used by the site
 
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
+## Getting Started
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+### Prerequisites
 
-# Step 3: Install the necessary dependencies.
-npm i
+- Node.js 18+ recommended
+- npm
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+### Install
+
+```bash
+npm install
+```
+
+### Run Development Server
+
+```bash
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+### Build for Production
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```bash
+npm run build
+```
 
-**Use GitHub Codespaces**
+### Preview Production Build
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+```bash
+npm run preview
+```
 
-## What technologies are used for this project?
+### Run Lint
 
-This project is built with:
+```bash
+npm run lint
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+### Run Tests
 
-## How can I deploy this project?
+```bash
+npm run test
+```
 
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
+## Deployment
 
-## Can I connect a custom domain to my Lovable project?
+This app is Vercel-friendly and includes a `vercel.json` rewrite so client-side routing works on refresh.
 
-Yes, you can!
+For deployment:
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+1. Build the app with `npm run build`
+2. Deploy the generated production output with your hosting provider
+3. Make sure the host supports SPA rewrites for React Router
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+## Contact
+
+- Email: `muhammad.rizwan.razzaq56@gmail.com`
+- Phone: `+92 306 6592403`
+- Location: `Lahore, Pakistan`
+- GitHub: `M-Rizwan-Razzaq`
+
+## Notes
+
+- The contact form is wired to FormSubmit.
+- Social links and WhatsApp contact are already included in the UI.
+- The project is designed to be easy to extend with more portfolio content, blog posts, or service pages.

@@ -22,18 +22,21 @@ const featuredProjects = [
     description: "Client business website with clean layouts and responsive sections.",
     tech: ["React", "Tailwind", "JavaScript"],
     image: "/agroanimal impex",
+    live: "https://www.agroanimalimpex.com/",
   },
   {
     title: "Softechbar IT Company",
     description: "Company showcase site built with modern UI and smooth navigation.",
     tech: ["React", "Vite", "TypeScript", "Tailwind"],
     image: "/softechbar",
+    live: "https://softechbar-alpha.vercel.app/",
   },
   {
     title: "Rizt Tech Solution",
     description: "Product and services showcase with structured sections and clear CTAs.",
     tech: ["React", "Vite", "TypeScript", "Tailwind"],
     image: "/Rizt tech solution",
+    live: "https://rizttechsoltuion.online/",
   },
 ];
 
@@ -58,6 +61,7 @@ const blogPosts = [
     excerpt: "Learn best practices for designing and building production-ready APIs.",
     date: "Mar 10, 2026",
     tag: "Backend",
+    href: "https://medium.com/@muhammad.rizwan.razzaq56/building-scalable-apis-with-node-js-in-2026-b74669ce92c0",
   },
   {
     title: "Modern React Patterns in 2026",
@@ -203,17 +207,21 @@ const Index = () => {
             {featuredProjects.map((project, i) => (
               <AnimatedCard key={project.title} delay={i * 0.1} className="p-0 overflow-hidden group">
                 <div className="relative h-44 sm:h-48 overflow-hidden">
-                  <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
-                    loading="lazy"
-                  />
-                  <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                    <Button variant="hero" size="sm">
-                      View Details <ArrowUpRight size={14} />
-                    </Button>
-                  </div>
+                  <a href={project.live} target="_blank" rel="noreferrer" className="block h-full">
+                    <img
+                      src={project.image}
+                      alt={project.title}
+                      className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
+                    />
+                    <div className="absolute inset-0 bg-background/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                      <Button asChild variant="hero" size="sm">
+                        <span>
+                          Preview <ArrowUpRight size={14} />
+                        </span>
+                      </Button>
+                    </div>
+                  </a>
                 </div>
                 <div className="p-5 sm:p-6">
                   <h3 className="font-display font-semibold text-base sm:text-lg">{project.title}</h3>
@@ -276,15 +284,23 @@ const Index = () => {
           <SectionHeading badge="Blog" title="Latest Articles" />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 sm:gap-6 max-w-4xl mx-auto">
             {blogPosts.map((post, i) => (
-              <AnimatedCard key={post.title} delay={i * 0.1}>
-                <span className="text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary">{post.tag}</span>
-                <h3 className="font-display font-semibold mt-3 text-base sm:text-lg">{post.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2">{post.excerpt}</p>
-                <div className="flex items-center gap-2 mt-4 text-xs text-muted-foreground">
-                  <Calendar size={12} />
-                  {post.date}
-                </div>
-              </AnimatedCard>
+              <a
+                key={post.title}
+                href={post.href}
+                target={post.href ? "_blank" : undefined}
+                rel={post.href ? "noreferrer" : undefined}
+                className="block"
+              >
+                <AnimatedCard delay={i * 0.1} className="cursor-pointer">
+                  <span className="text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary">{post.tag}</span>
+                  <h3 className="font-display font-semibold mt-3 text-base sm:text-lg">{post.title}</h3>
+                  <p className="text-sm text-muted-foreground mt-2">{post.excerpt}</p>
+                  <div className="flex items-center gap-2 mt-4 text-xs text-muted-foreground">
+                    <Calendar size={12} />
+                    {post.date}
+                  </div>
+                </AnimatedCard>
+              </a>
             ))}
           </div>
         </div>

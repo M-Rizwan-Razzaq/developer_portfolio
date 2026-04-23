@@ -100,12 +100,6 @@ For deployment:
 2. Deploy the generated production output with your hosting provider
 3. Make sure the host supports SPA rewrites for React Router
 
-## Contact
-
-- Email: `muhammad.rizwan.razzaq56@gmail.com`
-- Phone: `+92 306 6592403`
-- Location: `Lahore, Pakistan`
-- GitHub: `M-Rizwan-Razzaq`
 
 ## Notes
 

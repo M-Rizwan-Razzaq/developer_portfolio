@@ -128,16 +128,16 @@ const Projects = () => {
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-background/70 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center gap-3">
-                      <a href={project.live}>
-                        <Button variant="hero" size="sm">
+                      <Button asChild variant="hero" size="sm">
+                        <a href={project.live} target="_blank" rel="noreferrer">
                           Live Demo <ExternalLink size={14} />
-                        </Button>
-                      </a>
-                      <a href={project.github}>
-                        <Button variant="hero-outline" size="sm">
+                        </a>
+                      </Button>
+                      <Button asChild variant="hero-outline" size="sm">
+                        <a href={project.github} target="_blank" rel="noreferrer">
                           <Github size={14} />
-                        </Button>
-                      </a>
+                        </a>
+                      </Button>
                     </div>
                   </div>
                   <div className="p-5 sm:p-6">

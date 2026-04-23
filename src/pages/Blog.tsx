@@ -9,6 +9,7 @@ const blogPosts = [
     date: "Mar 10, 2026",
     tag: "Backend",
     readTime: "8 min read",
+    href: "https://medium.com/@muhammad.rizwan.razzaq56/building-scalable-apis-with-node-js-in-2026-b74669ce92c0",
   },
   {
     title: "Modern React Patterns You Should Know",
@@ -60,23 +61,33 @@ const Blog = () => {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5 sm:gap-6 max-w-6xl mx-auto">
             {blogPosts.map((post, i) => (
-              <AnimatedCard key={post.title} delay={i * 0.08} className="group cursor-pointer">
-                <div className="flex items-center gap-2 mb-3">
-                  <span className="text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary">{post.tag}</span>
-                  <span className="text-xs text-muted-foreground">{post.readTime}</span>
-                </div>
-                <h3 className="font-display font-semibold text-base sm:text-lg group-hover:text-primary transition-colors">{post.title}</h3>
-                <p className="text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">{post.excerpt}</p>
-                <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
-                  <div className="flex items-center gap-2 text-xs text-muted-foreground">
-                    <Calendar size={12} />
-                    {post.date}
+              <a
+                key={post.title}
+                href={post.href}
+                target={post.href ? "_blank" : undefined}
+                rel={post.href ? "noreferrer" : undefined}
+                className="block group"
+              >
+                <AnimatedCard delay={i * 0.08} className="cursor-pointer">
+                  <div className="flex items-center gap-2 mb-3">
+                    <span className="text-xs px-2 py-1 rounded-md bg-secondary/10 text-secondary">{post.tag}</span>
+                    <span className="text-xs text-muted-foreground">{post.readTime}</span>
                   </div>
-                  <span className="text-xs text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
-                    Read More <ArrowRight size={12} />
-                  </span>
-                </div>
-              </AnimatedCard>
+                  <h3 className="font-display font-semibold text-base sm:text-lg group-hover:text-primary transition-colors">
+                    {post.title}
+                  </h3>
+                  <p className="text-sm text-muted-foreground mt-2 leading-relaxed line-clamp-3">{post.excerpt}</p>
+                  <div className="flex items-center justify-between mt-4 pt-4 border-t border-border/30">
+                    <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                      <Calendar size={12} />
+                      {post.date}
+                    </div>
+                    <span className="text-xs text-primary font-medium flex items-center gap-1 group-hover:gap-2 transition-all">
+                      Read More <ArrowRight size={12} />
+                    </span>
+                  </div>
+                </AnimatedCard>
+              </a>
             ))}
           </div>
         </div>

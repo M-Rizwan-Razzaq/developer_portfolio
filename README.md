@@ -1,10 +1,14 @@
 # Muhammad Rizwan Portfolio
 
-A modern personal portfolio website built to showcase projects, services, experience, testimonials, and contact details in a clean, responsive UI.
+A polished, responsive portfolio website built to present projects, services, experience, testimonials, and contact details in one clean place.
+
+**Live Demo:** [mrizwandev.vercel.app](https://mrizwandev.vercel.app/)  
+**Screenshots:** [View the full gallery](#screenshots)  
+**Code:** This repository
 
 ## Overview
 
-This project is a single-page style portfolio app with routed sections for:
+This is a modern single-page portfolio experience with routed sections for:
 
 - Home
 - About
@@ -14,7 +18,51 @@ This project is a single-page style portfolio app with routed sections for:
 - Testimonials
 - Contact
 
-It uses animated UI elements, responsive layouts, and a contact form that sends submissions through FormSubmit.
+It is designed to feel fast, responsive, and professional across desktop and mobile, with animated sections, reusable UI components, and an email contact form.
+
+## Screenshots
+
+The screenshots below are stored in `public/readmepicture` and show the main sections of the website.
+
+### Hero Section
+
+![Hero section](./public/readmepicture/herosection)
+
+### About
+
+![About section](./public/readmepicture/About)
+
+### Projects
+
+![Projects section](./public/readmepicture/Projects)
+
+### Services
+
+![Services section](./public/readmepicture/services)
+
+### Blog
+
+![Blog section](./public/readmepicture/blogs)
+
+### Testimonials
+
+![Testimonials section](./public/readmepicture/testimonial)
+
+### Technologies
+
+![Technologies section](./public/readmepicture/technologies)
+
+### Academic Background
+
+![Academic section](./public/readmepicture/accademic)
+
+### Contact
+
+![Contact section](./public/readmepicture/contact)
+
+### Footer
+
+![Footer section](./public/readmepicture/footer)
 
 ## Tech Stack
 
@@ -30,8 +78,9 @@ It uses animated UI elements, responsive layouts, and a contact form that sends 
 
 ## Features
 
+- Strong hero section with clear call to action
 - Responsive navbar with mobile menu
-- Animated hero, cards, and section transitions
+- Animated cards, sections, and transitions
 - Dedicated pages for portfolio content
 - Skill, experience, education, and project sections
 - Contact form with email submission
@@ -46,6 +95,7 @@ It uses animated UI elements, responsive layouts, and a contact form that sends 
 - `src/components/` - Shared layout, navigation, footer, and UI pieces
 - `src/components/ui/` - Reusable shadcn-style UI components
 - `src/assets/` - Static assets used by the site
+- `public/readmepicture/` - README screenshots for each major section
 
 ## Getting Started
 
@@ -99,7 +149,6 @@ For deployment:
 1. Build the app with `npm run build`
 2. Deploy the generated production output with your hosting provider
 3. Make sure the host supports SPA rewrites for React Router
-
 
 ## Notes
 

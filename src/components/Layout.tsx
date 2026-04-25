@@ -13,7 +13,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
   }, [location.pathname]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-background mesh-bg">
       <ScrollProgress />
       <Navbar />
       <main>{children}</main>

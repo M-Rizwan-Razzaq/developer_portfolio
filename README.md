@@ -26,11 +26,11 @@ The screenshots below are stored in `public/readmepicture` and show the main sec
 
 ### Hero Section
 
-![Hero section](./public/readmepicture/herosection)
+![Hero section](./public/readmepicture/newherosection)
 
 ### About
 
-![About section](./public/readmepicture/About)
+![About section](./public/readmepicture/newabout)
 
 ### Projects
 

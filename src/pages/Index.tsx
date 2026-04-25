@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Code2, Sparkles, Zap, Star, ExternalLink, ArrowUpRight, Calendar } from "lucide-react";
+import { ArrowRight, Code2, Sparkles, Zap, Star, ExternalLink, ArrowUpRight, Calendar, Layers3, Globe2, WandSparkles } from "lucide-react";
 import { Link } from "react-router-dom";
 import { SectionHeading, AnimatedCard } from "@/components/ui/animated-elements";
 import Layout from "@/components/Layout";
@@ -75,83 +75,110 @@ const Index = () => {
   return (
     <Layout>
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-20 px-4">
-        {/* Background effects */}
+      <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-24 px-4">
         <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-1/4 left-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-primary/8 rounded-full blur-3xl animate-pulse-glow" />
-          <div className="absolute bottom-1/4 right-1/4 w-64 sm:w-96 h-64 sm:h-96 bg-secondary/8 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-primary/3 rounded-full blur-[120px]" />
+          <div className="absolute inset-x-0 top-12 mx-auto h-80 w-[90vw] max-w-6xl rounded-[3rem] bg-gradient-to-r from-primary/10 via-secondary/10 to-accent/10 blur-3xl" />
+          <div className="absolute top-1/4 left-1/5 w-64 sm:w-96 h-64 sm:h-96 bg-primary/10 rounded-full blur-3xl animate-pulse-glow" />
+          <div className="absolute bottom-1/4 right-1/5 w-64 sm:w-96 h-64 sm:h-96 bg-secondary/10 rounded-full blur-3xl animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
         </div>
 
         <div className="container mx-auto px-2 sm:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
+          <div className="grid gap-10 lg:grid-cols-[1.1fr_0.9fr] items-center max-w-7xl mx-auto">
+            <div className="text-center lg:text-left">
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+              >
+                <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full text-xs font-semibold uppercase tracking-[0.2em] bg-primary/10 text-primary border border-primary/20 mb-6">
+                  <Sparkles className="inline w-3 h-3" />
+                  Full Stack Developer
+                </span>
+              </motion.div>
+
+              <motion.h1
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.1 }}
+                className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
+              >
+                Muhammad Rizwan{" "}
+                <span className="gradient-text-hero">Software Engineer</span>
+              </motion.h1>
+
+              <motion.p
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.2 }}
+                className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto lg:mx-0 leading-relaxed"
+              >
+                Building fast, scalable, and modern web applications with React, Node.js, Angular, and MongoDB, focused on performance and great user experience.
+              </motion.p>
+
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center lg:justify-start"
+              >
+                <Link to="/contact">
+                  <Button variant="accent" size="lg" className="w-full sm:w-auto">
+                    Hire Me <ArrowRight className="ml-1" size={18} />
+                  </Button>
+                </Link>
+                <Link to="/projects">
+                  <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
+                    View Projects <ExternalLink className="ml-1" size={18} />
+                  </Button>
+                </Link>
+              </motion.div>
+
+              <motion.div
+                initial={{ opacity: 0, y: 24 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="mt-8 flex flex-wrap justify-center lg:justify-start gap-3"
+              >
+                {[
+                  "Responsive UI",
+                  "Clean APIs",
+                  "Motion-first",
+                  "Mobile friendly",
+                ].map((item) => (
+                  <span key={item} className="px-3 py-2 rounded-full border border-border/70 bg-card/70 text-xs font-medium text-muted-foreground">
+                    {item}
+                  </span>
+                ))}
+              </motion.div>
+            </div>
+
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
+              initial={{ opacity: 0, scale: 0.96, y: 20 }}
+              animate={{ opacity: 1, scale: 1, y: 0 }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="glass-panel p-5 sm:p-6 md:p-7 relative overflow-hidden"
             >
-              <span className="inline-block px-4 py-1.5 rounded-full text-xs font-medium bg-primary/10 text-primary border border-primary/20 mb-6">
-                <Sparkles className="inline w-3 h-3 mr-1" />
-          Full Stack Developer      
-              </span>
-            </motion.div>
+              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_left,_hsl(var(--primary)/0.14),_transparent_35%),radial-gradient(circle_at_bottom_right,_hsl(var(--secondary)/0.14),_transparent_35%)]" />
+              <div className="relative space-y-5">
 
-            <motion.h1
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              className="font-display text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold leading-tight"
-            >
-              Muhammad Rizwan{" "}
-              <span className="gradient-text-hero">Software Engineer</span>
-            </motion.h1>
-
-            <motion.p
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="mt-4 sm:mt-6 text-base sm:text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed"
-            >
-           Building fast, scalable, and modern web applications with React, Node.js, Angular, and MongoDB, focused on performance and great user experience.
-            </motion.p>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
-              className="mt-8 sm:mt-10 flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center"
-            >
-              <Link to="/contact">
-                <Button variant="accent" size="lg" className="w-full sm:w-auto">
-                  Hire Me <ArrowRight className="ml-1" size={18} />
-                </Button>
-              </Link>
-              <Link to="/projects">
-                <Button variant="hero-outline" size="lg" className="w-full sm:w-auto">
-                  View Projects <ExternalLink className="ml-1" size={18} />
-                </Button>
-              </Link>
-            </motion.div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.4 }}
-              className="mt-12 sm:mt-16 grid grid-cols-3 gap-4 sm:gap-8 max-w-lg mx-auto"
-            >
-              {[
-                { value: "9", label: "Projects" },
-                { value: "4", label: "Roles" },
-                { value: "2", label: "Degrees" },
-              ].map((stat) => (
-                <div key={stat.label} className="text-center">
-                  <div className="font-display text-xl sm:text-2xl md:text-3xl font-bold gradient-text">{stat.value}</div>
-                  <div className="text-[10px] sm:text-xs text-muted-foreground mt-1">{stat.label}</div>
+                <div className="grid grid-cols-2 gap-3">
+                  {[
+                    { icon: Layers3, label: "Projects shipped", value: "9+" },
+                    { icon: Globe2, label: "Live websites", value: "8" },
+                    { icon: Code2, label: "Core stack", value: "MERN" },
+                    { icon: Zap, label: "Focus", value: "Fast" },
+                  ].map((item) => (
+                    <div key={item.label} className="rounded-2xl border border-border/60 bg-background/70 p-4">
+                      <item.icon className="text-primary" size={18} />
+                      <div className="mt-4 text-2xl font-display font-bold">{item.value}</div>
+                      <div className="text-xs text-muted-foreground mt-1">{item.label}</div>
+                    </div>
+                  ))}
                 </div>
-              ))}
+              </div>
             </motion.div>
           </div>
+
         </div>
       </section>
 
@@ -161,7 +188,7 @@ const Index = () => {
           <SectionHeading
             badge="Skills"
             title="Technologies I Work With"
-            subtitle="Constantly evolving my toolkit to deliver the best solutions"
+            subtitle="Constantly evolving my toolkit to deliver polished, high-performance solutions"
           />
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6 max-w-3xl mx-auto">
             {skills.map((skill, i) => (

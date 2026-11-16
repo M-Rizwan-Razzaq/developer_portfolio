@@ -7,54 +7,43 @@ import Layout from "@/components/Layout";
 const experience = [
   {
     year: "June 2025 - Present",
-    role: "Full Stack Developer",
+    role: "Software Engineer",
     company: "Tech Crusades",
-    description: "Working on MEAN and MERN stack applications, building Angular/React frontends with Node.js, Express, and MongoDB.",
+    description: "Developing full-stack SaaS and business applications with Angular, React, TypeScript, Node.js, and NestJS. Building REST APIs, working with MongoDB and PostgreSQL, and contributing to access control, integrations, and production support.",
   },
   {
     year: "Jul 2024 - Oct 2024",
     role: "MERN Stack Web Developer",
     company: "Codings First",
-    description: "Improved MongoDB performance with indexing, refined the frontend with TypeScript + Tailwind, and strengthened auth using JWT & OAuth.",
+    description: "Built full-stack applications with MongoDB, Express, React, and Node.js, including reusable interfaces, backend APIs, CRUD features, and database integrations.",
   },
   {
     year: "Mar 2024 - Jun 2024",
     role: "Web Developer Internship",
     company: "Skill Evokers",
-    description: "Built a React + Node.js e-commerce platform and optimized APIs with caching to reduce load times.",
+    description: "Developed an e-commerce platform with React and Node.js, integrated frontend features with backend APIs, and improved performance through API optimization and caching.",
   },
   {
     year: "Jun 2023 - Feb 2024",
     role: "Frontend Developer",
     company: "Freelance, Bahawalpur",
-    description: "Delivered responsive UI with React + Tailwind, integrated REST APIs & Redux, and converted Figma designs with high accuracy.",
+    description: "Created responsive websites with HTML, CSS, and JavaScript, turning design concepts into accessible interfaces for desktop, tablet, and mobile.",
   },
 ];
 
 const techStack = [
-  { category: "Frontend", items: ["React.js", "Angular", "Tailwind CSS", "Bootstrap", "Responsive UI", "Redux"] },
-  { category: "Backend", items: ["Node.js", "Express.js", "REST APIs", "JWT", "OAuth"] },
-  { category: "Database", items: ["MongoDB"] },
-  { category: "Tools", items: ["TypeScript", "Git", "GitHub", "GitLab", "Azure", "CI/CD"] },
+  { category: "Frontend", items: ["Angular", "React.js", "Next.js", "Ionic", "TypeScript", "JavaScript", "Tailwind CSS", "PrimeNG"] },
+  { category: "Backend", items: ["Node.js", "NestJS", "Express.js", "REST APIs", "Apollo GraphQL", "Authentication & RBAC"] },
+  { category: "Databases", items: ["MongoDB", "PostgreSQL", "Redis", "Supabase", "Prisma ORM"] },
+  { category: "Tools & Cloud", items: ["Git", "GitHub", "GitLab", "Docker", "Cloudinary", "Vercel", "Render"] },
 ];
 
 const education = [
   {
     degree: "Bachelor of Software Engineering",
     school: "The Islamia University of Bahawalpur (IUB)",
-    years: "2022 - 2026",
+    years: "Dec 2022 - Jan 2027",
   },
-  {
-    degree: "Intermediate (Mathematics, Physics, CS)",
-    school: "Aspire College, Mian Channu",
-    years: "2020 - 2022",
-  },
-];
-
-const highlights = [
-  { label: "Experience", value: "3+ years" },
-  { label: "Projects", value: "9+ shipped" },
-  { label: "Focus", value: "Fast UI + APIs" },
 ];
 
 const About = () => {
@@ -77,19 +66,20 @@ const About = () => {
                   About Me
                 </span>
                 <h1 className="mt-5 font-display text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                  Building clean web experiences with{" "}
-                  <span className="gradient-text-hero">thoughtful design</span>
+                  Building software that solves{" "}
+                  <span className="gradient-text-hero">real business problems</span>
                 </h1>
                 <p className="mx-auto mt-5 max-w-2xl text-sm leading-relaxed text-muted-foreground sm:text-base lg:mx-0 lg:text-lg">
-                  I am Muhammad Rizwan, a Full Stack Developer and Software Engineering student.
-                  I like turning ideas into responsive products that feel fast, clear, and polished.
+                  I am Muhammad Rizwan, a Full Stack Software Engineer based in Lahore. I build
+                  responsive web and mobile products, SaaS platforms, e-commerce experiences, and
+                  business systems with Angular, React, Node.js, NestJS, and modern databases.
                 </p>
 
                 <div className="mt-6 flex flex-wrap justify-center gap-3 lg:justify-start">
                   {[
-                    "React + Angular",
-                    "Node + MongoDB",
-                    "Responsive UI systems",
+                    "Angular + React",
+                    "Node.js + NestJS",
+                    "MongoDB + PostgreSQL",
                   ].map((item) => (
                     <span key={item} className="rounded-full border border-border/60 bg-card/80 px-3 py-2 text-xs font-medium text-muted-foreground">
                       {item}
@@ -128,7 +118,7 @@ const About = () => {
                       <p className="text-xs uppercase tracking-[0.24em] text-muted-foreground">Profile</p>
                       <h2 className="mt-1 font-display text-2xl font-bold">Muhammad Rizwan</h2>
                       <p className="mt-1 text-sm text-muted-foreground">
-                        Full Stack Developer focused on UX, performance, and maintainable code.
+                        Full Stack Software Engineer focused on scalable, user-focused applications.
                       </p>
                     </div>
                   </div>
@@ -148,7 +138,7 @@ const About = () => {
                       Currently building
                     </div>
                     <p className="mt-2 text-sm text-muted-foreground">
-                      Modern web apps with React, Node.js, Angular, TypeScript, Tailwind, and MongoDB.
+                      SaaS, payroll, workforce management, e-commerce, and developer utility products.
                     </p>
                   </div>
                 </div>

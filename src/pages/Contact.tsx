@@ -30,26 +30,31 @@ const Contact = () => {
     const form = event.currentTarget;
     const formData = new FormData(form);
     const senderEmail = String(formData.get("email") || "").trim();
-
-    formData.set("_subject", "New Contact Form Submission");
-    formData.set("_captcha", "false");
-    formData.set("_template", "table");
-    if (senderEmail) {
-      formData.set("_replyto", senderEmail);
-    }
+    const subject = String(formData.get("subject") || "Project inquiry").trim();
+    const payload = Object.fromEntries(formData.entries());
+    Object.assign(payload, {
+      _subject: `Portfolio contact: ${subject}`,
+      _replyto: senderEmail,
+      _template: "table",
+      _url: window.location.href,
+    });
 
     setIsSubmitting(true);
+    setIsSubmitted(false);
 
     try {
       const response = await fetch(FORM_SUBMIT_ENDPOINT, {
         method: "POST",
-        headers: { Accept: "application/json" },
-        body: formData,
+        headers: {
+          Accept: "application/json",
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(payload),
       });
 
       const result = await response.json().catch(() => null);
-      if (!response.ok || !result || result.success !== "true") {
-        throw new Error("Form submit failed");
+      if (!response.ok || !result || !(result.success === true || result.success === "true")) {
+        throw new Error(result?.message || "The email service rejected the submission.");
       }
 
       setIsSubmitted(true);
@@ -58,7 +63,9 @@ const Contact = () => {
     } catch (error) {
       toast({
         title: "Submission failed",
-        description: "Message deliver nahi hui. Please dobara try karein ya direct email karein.",
+        description: error instanceof Error && error.message !== "Failed to fetch"
+          ? `Message could not be sent: ${error.message}`
+          : "Message nahi bheji ja saki. Dobara try karein ya direct email karein.",
         variant: "destructive",
       });
     } finally {

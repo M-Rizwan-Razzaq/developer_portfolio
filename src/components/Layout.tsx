@@ -4,6 +4,7 @@ import { useLocation } from "react-router-dom";
 import Navbar from "./Navbar";
 import Footer from "./Footer";
 import ScrollProgress from "./ScrollProgress";
+import PortfolioChatbot from "./PortfolioChatbot";
 
 const Layout = ({ children }: { children: ReactNode }) => {
   const location = useLocation();
@@ -18,6 +19,7 @@ const Layout = ({ children }: { children: ReactNode }) => {
       <Navbar />
       <main>{children}</main>
       <Footer />
+      <PortfolioChatbot />
       <a
         href="https://wa.me/923066592403"
         target="_blank"
